@@ -411,7 +411,7 @@ void *k_mm_alloc(k_mm_head *mmhead, size_t size)
         return NULL;
     }
 
-    if (size == 0) {
+    if (size == 0 || (size_t)(-1) - size < MM_ALIGN_SIZE - 1) {
         return NULL;
     }
 
